@@ -1,0 +1,20 @@
+ejemplo:
+se desea saber cual sera el total de calificacion de 
+un estudiante que tiene 3 notas diferentes y que
+cada nota tiene los siguientes porcentajes de ponderacion:
+1 nota el 20%
+2 nota el 30%
+3 nota el 50%
+al final se debe mostrar su nota final y el nombre y el apellido
+del estudiante
+
+ejercicio1:
+la jefe de nomina desea saber cual sera el total a pagar
+de un empleado que trabajo en el dia 12 horas durante 5 dias
+en la empresa se cataloga que hasta 8 horas diarias son tomadas
+ como horas ordinarias y cada hora ordinaria tiene
+un pago "X" , despues de las 8 horas diarias se cataloga
+como hora extra y tiene un valor de hora adicional que seria
+de 5000 pesos.
+se desea saber cual seria el pago total que recibira
+ese empleado a los 5 dias.
