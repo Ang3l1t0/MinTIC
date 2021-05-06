@@ -13,17 +13,18 @@ ese empleado a los 5 dias.
 
 horas = float(input('Ingrese el numero de horas diarias trabajadas: '))
 valor_hora = float(input('Ingrese el valor de la hora ordinaria: '))
-dias_laborados = int(input('Ingrese la cantidad de dias que laboró la persona: '))
-tiempo_extra = 0
+dias_laborados = int(
+    input('Ingrese la cantidad de dias que laboró la persona: '))
 
-if horas > 8:
-    # obtengo la cantidad de las horas extras
-    horas_extras = horas - 8
-    # calculo el valor de las horas extras
-    valor_extra = (horas_extras * (5000 + valor_hora))
-    # el total 8 horas ordinarias + el valor de las extras * los dias laborados
-    total = ((valor_extra + (8 * valor_hora)) * dias_laborados)
-    print(total)
-else:
-    total = horas * valor_hora * dias_laborados
-    print(total)
+tiempo_extra = 0
+horas_ordinarias = 8
+
+# obtengo la cantidad de las horas extras
+horas_extras = horas - horas_ordinarias
+
+# calculo el valor de las horas extras
+valor_extra = (horas_extras * (5000 + valor_hora))
+
+# el total 8 horas ordinarias + el valor de las extras * los dias laborados
+total = ((valor_extra + (horas_ordinarias * valor_hora)) * dias_laborados)
+print('Salario a pagar es:', total)
