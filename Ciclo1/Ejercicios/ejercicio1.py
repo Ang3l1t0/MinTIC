@@ -2,8 +2,8 @@
 ejercicio1:
 la jefe de nomina desea saber cual sera el total a pagar
 de un empleado que trabajo en el dia 12 horas durante 5 dias
-en la empresa se cataloga que hasta 8 horas diarias son tomadas
- como horas ordinarias y cada hora ordinaria tiene
+en la empresa se cataloga que hasta 8 horas diarias son tomadas dias 
+como horas ordinarias y cada hora ordinaria tiene
 un pago "X" , despues de las 8 horas diarias se cataloga
 como hora extra y tiene un valor de hora adicional que seria
 de 5000 pesos.
