@@ -58,3 +58,4 @@ if puntaje >= 50:
     print("El candidato continua en el proceso de seleccion")
 else:
     print("El candidato no continua en el proceso de seleccion")
+    

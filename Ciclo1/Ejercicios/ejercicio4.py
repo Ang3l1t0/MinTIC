@@ -10,7 +10,7 @@ ej : numero: 78967 (no se puede)
 '''
 numero = int(input('Ingrese un numero: '))
 
-#En este rango se considera que el numero es de menos de 4 cifras
+# En este rango se considera que el numero es de menos de 4 cifras
 if numero < 1000 and numero >= -999:
     print("El numero debe ser de 4 cifras")
 
