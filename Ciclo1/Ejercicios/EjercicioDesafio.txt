@@ -1,0 +1,77 @@
+EJERCICIO DE DESAFÍO:
+Haga un programa que permita capturar N facturas. cada factura es calculada de la siguiente manera: 
+se pide la cantidad de productos que se va a facturar. por cada producto y el valor unitario de cada uno de esos productos, se calcula el subtotal por cada producto.  al final se le agrega el IVA y se genera la factura con una total factura los totales de cada factura deben ir registrándose para posteriormente ser procesador de la siguiente manera.
+1.	cual fue el producto más comprado 
+2.	mostrar todos los totales de factura
+3.	cual fue la factura de menor costo
+4.	cual fue la factura de mayor costo
+5.	mostrar cuales fueron las facturas que estuvieron por encima del promedio de todas las facturas y organizarlas en forma ascendente.
+PD: desconozco el número de facturas que voy a procesar. el sistema debe permitir todas las que yo necesite sin pedir antes cuantas facturas son.
+DEBE UTILIZAR VECTORES/LISTAS Y FUNCIONES Y/O PROCEDIMIENTOS
+
+Example:
+Numero de factura:1010
+Cantidad de productos: 3
+----------------------------
+nombre del producto 1 : camisa
+cantidad a llevar de camisa : 2
+valor unitario: 10
+subtotal-->>20
+----------------------------
+nombre del producto 2: pantalon
+cantidad a llevar de pantalon :4
+valor unitario:20
+subtotal-->>80
+-----------------------------
+nombre del producto 3: cinturon
+cantidad a llevar de cinturon :1
+valor unitario:20
+subtotal-->>20
+
+TOTAL SIN IVA-->>100
+TOTAL factura#1010 CON IVA--->>119
+===============================
+numero de factura:1020
+cantidad de productos: 2
+------------------------------
+nombre del producto 1: SHORT
+cantidad a llevar de  :7
+valor unitario:10
+subtotal-->>70
+-------------------------------
+nombre del producto 2: SOMBRERO
+cantidad a llevar de  :1
+valor unitario:10
+subtotal-->>10
+
+TOTAL SIN IVA-->>80
+TOTAL factura#1020 CON IVA--->>95.2
+
+====================================
+numero de factura:1030
+cantidad de productos: 1
+------------------------------
+nombre del producto 1: FALDA
+cantidad a llevar de  :3
+valor unitario:50
+subtotal-->>150
+-------------------------------
+TOTAL SIN IVA-->>150
+TOTAL factura#1030 CON IVA--->>178.5
+**************************************
+
+INTERNAMENTE SE GENERO UN VECTOR CON LOS TOTALES DE CADA FACTURA
+
+facturas=[119,95.2,178.5]
+promedio de facturas=130.9
+
+por pantalla:
+PRODUCTO MAS COMPRADO:SHORT con 7 productos
+FACTURA DE MENOR COSTO: 95.2
+FACTURA DE MAYOR COSTO:178.5
+FACTURAS POR ENCIMA DEL PROMEDIO : 178.5
+FACTURAS ORGANIZADAS : 
+95.2
+119
+178.5
+
