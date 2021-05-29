@@ -1,4 +1,4 @@
-import operator
+from operator import itemgetter
 # Numero de candidatos que se ingresaran
 cantidad_aplicantes = int(input())
 
@@ -91,16 +91,17 @@ print(continua, noContinua, error)
 
 resultados = [
     ("sin reconocimiento", sinreconocimiento),
-    ("afrodescendiente", afrodescendiente),
-    ("gitano", gitano),
     ("raizal", raizal),
     ("palenquero", palenquero),
-    ("indigena", indigena)
+    ("indigena", indigena),
+    ("gitano", gitano),
+    ("afrodescendiente", afrodescendiente)  
 ]
 
 # ordenamos la tupla de mayor a menor, index 1 referencia a segundo elemento
-resultados.sort(key=lambda x: x[1], reverse=True)
+#print(resultados.sort(key=lambda x: x[1], reverse=True))
+#print(sorted(resultados, key=itemgetter(1,0), reverse=True))
 
 # recorremos el key value de cada tupla e imprimimos su valor
-for k, v in resultados:
+for k, v in sorted(resultados, key=itemgetter(1,0), reverse=True):
     print(k, v)
