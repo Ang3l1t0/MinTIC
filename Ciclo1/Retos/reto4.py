@@ -67,33 +67,35 @@ def cont_noCon(matriz1, matriz2, matriz3):
             estrato = (matriz2[filas][columnas])
             salario = int(matriz3[filas][columnas])
             # Verificacion de la etnia
-            if etnia == '2':
-                pEtnia = 8
-            elif etnia == '3':
-                pEtnia = 10
-            elif etnia == '4':
-                pEtnia = 12
-            elif etnia == '5':
-                pEtnia = 14
-            elif etnia == '6':
-                pEtnia = 16
-            elif etnia == '1':
-                pEtnia = 0
+            if etnia not in lEstratos or estrato not in lEstratos or salario < 0:
+                break
+            else:
+                if etnia == '2':
+                    pEtnia = 8
+                elif etnia == '3':
+                    pEtnia = 10
+                elif etnia == '4':
+                    pEtnia = 12
+                elif etnia == '5':
+                    pEtnia = 14
+                elif etnia == '6':
+                    pEtnia = 16
+                elif etnia == '1':
+                    pEtnia = 0
 
-            # Verificacion del estrato
-            if estrato == "1":
-                pEstrato = 20
-            elif estrato == "2":
-                pEstrato = 16
-            elif estrato == "3":
-                pEstrato = 12
-            elif estrato == "4":
-                pEstrato = 8
-            elif estrato == "5" or estrato == "6":
-                pEstrato = 0
+                # Verificacion del estrato
+                if estrato == "1":
+                    pEstrato = 20
+                elif estrato == "2":
+                    pEstrato = 16
+                elif estrato == "3":
+                    pEstrato = 12
+                elif estrato == "4":
+                    pEstrato = 8
+                elif estrato == "5" or estrato == "6":
+                    pEstrato = 0
 
-            # Verificacion del salario
-            if salario >= 0:
+                # Verificacion del salario
                 if salario / smlv < 1:
                     pSalario = 30
                 elif salario / smlv < 2:
