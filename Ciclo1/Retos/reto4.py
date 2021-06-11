@@ -1,112 +1,124 @@
-from numpy.lib.arraysetops import unique
-from operator import itemgetter
+import numpy as np
+participantes = int(input())
 
-# semanas recibe un numero que sera usado para obtener el numero de filas de la matriz
-semanas = int(input())
-
-# Declaraciones
 etnias = []
 estratos = []
 ingresos = []
+lEtnias = ["sin reconocimiento", "afrodescendiente",
+           "indigena", "raizal", "palenquero", "gitano"]
+lEstratos = ["1", "2", "3", "4", "5", "6"]
 
 
-def lista_etnias(filas):
-    ''' Funcion para crear una matriz de etnias'''
+def lista_matriz(filas):
+    ''' Funcion para crear una matriz de etnias tipo numpy'''
+    matriz = []
     for _i in range(filas):
         lst = input().split()
-        etnias.append(lst)
-    return etnias
+        matriz.append(lst)
+    for _i in range(7):
+        for _x in range(filas):
+            matriz = np.array(matriz)
+    return matriz
 
 
-def lista_estratos(filas):
-    ''' Funcion para crear una matriz de estratos'''
-    for _i in range(filas):
-        lst = input().split()
-        estratos.append(lst)
-    return estratos
-
-
-def lista_ingresos(filas):
-    ''' Funcion para crear una matriz de ingresos'''
-    for _i in range(filas):
-        lst = input().split()
-        ingresos.append(lst)
-    return ingresos
-
-
-def menosXdia(matriz):
-    '''retorna la etnia que menos se presentó por dia'''
-    day1 = []
-    day2 = []
-    day3 = []
-    day4 = []
-    day5 = []
-    day6 = []
-    day7 = []
+def Xdia(matriz, masOmenos):
+    ''' Imprime las etnias que menos se presentaron por día'''
     for i in range(7):
-        for fila in matriz:
-            if i == 0:
-                day1.append(fila[i])
-            elif i == 1:
-                day2.append(fila[i])
-            elif i == 2:
-                day3.append(fila[i])
-            elif i == 3:
-                day4.append(fila[i])
-            elif i == 4:
-                day5.append(fila[i])
-            elif i == 5:
-                day6.append(fila[i])
-            elif i == 6:
-                day7.append(fila[i])
-    
-    etnia1 = count_element(day1)
-    etnia2 = count_element(day2)
-    etnia3 = count_element(day3)
-    etnia4 = count_element(day4)
-    etnia5 = count_element(day5)
-    etnia6 = count_element(day6)
-    etnia7 = count_element(day7)
-    print(f'{etnia1},{etnia2},{etnia3},{etnia4},{etnia5},{etnia6},{etnia7}')
-    #return(day1, day2, day3, day4, day5, day6, day7)
+        # elemento ordenado e indice de ese elemento
+        u, indices = np.unique(matriz[:, i], return_inverse=True)
+        # valor minimo o maximo de una lista ordenado con el numero de repeticiones de cada numero
+        if masOmenos == 'menos':
+            conteo = u[np.argmin(np.bincount(indices))]
+        elif masOmenos == 'mas':
+            conteo = u[np.argmax(np.bincount(indices))]
+        # usamos el numero obtenido para obtener el nombre de la etnia en la lista
+        etniaXdia = lEtnias[int(conteo) - 1]
+        if i < 6:
+            print(etniaXdia, end=",")
+        if i == 6:
+            print(etniaXdia, end="\n")
 
 
-def count_element(lista):
-    '''Imprime el elemento que menos se repite en una lista'''
-    cuenta = 0
-    lista1 = []
-    for i in lista:
-        cuenta = lista.count(i)
-        if i == '1':
-            #sinreconocimiento += 1
-            sr = ('sin reconocimiento', 1, cuenta)
-            lista1.append(sr)
-        elif i == '2':
-            ad = ('afrodescendiente', 2, cuenta)
-            lista1.append(ad)
-        elif i == '3':
-            ig = ('indigena', 3, cuenta)
-            lista1.append(ig)
-        elif i == '4':
-            rz = ('raizal', 4, cuenta)
-            lista1.append(rz)
-        elif i == '5':
-            pq = ('palenquero', 5, cuenta)
-            lista1.append(pq)
-        elif i == '6':
-            gt = ('gitano', 6, cuenta)
-            lista1.append(gt)
-    etnia = sorted(lista1, key=itemgetter(2, 1))
-    return etnia[0][0]
+def Xsemana(matriz, masOmenos):
+    ''' Imprime las etnias que menos se presentaron por semana'''
+    # elemento ordenado e indice de ese elemento
+    u, indices = np.unique(matriz, return_inverse=True)
+    # valor minimo o max de una lista ordenado con el numero de repeticiones de cada numero
+    if masOmenos == "menos":
+        conteo = u[np.argmin(np.bincount(indices))]
+    elif masOmenos == "mas":
+        conteo = u[np.argmax(np.bincount(indices))]
+    # usamos el numero obtenido para obtener el nombre de la etnia en la lista
+    semana_min = lEtnias[int(conteo) - 1]
+    print(semana_min)
 
 
-# almaceno el resultado de las funciones anteriores en sus respectivas variables
-etnia = lista_etnias(semanas)
-estrato = lista_estratos(semanas)
-ingreso = lista_ingresos(semanas)
+def cont_noCon(matriz1, matriz2, matriz3):
+    lContinuan = []
+    puntaje = 0
+    pEtnia = 0
+    pEstrato = 0
+    pSalario = 0
+    smlv = 908526
+    for columnas in range(7):
+        continua = 0
+        for filas in range(participantes):
+            etnia = (matriz1[filas][columnas])
+            estrato = (matriz2[filas][columnas])
+            salario = int(matriz3[filas][columnas])
+            # Verificacion de la etnia
+            if etnia == '2':
+                pEtnia = 8
+            elif etnia == '3':
+                pEtnia = 10
+            elif etnia == '4':
+                pEtnia = 12
+            elif etnia == '5':
+                pEtnia = 14
+            elif etnia == '6':
+                pEtnia = 16
+            elif etnia == '1':
+                pEtnia = 0
 
-menosXdia(etnia)
-# print(etnia)
-# print(estrato)
-# print(ingreso)
-#print(days)
+            # Verificacion del estrato
+            if estrato == "1":
+                pEstrato = 20
+            elif estrato == "2":
+                pEstrato = 16
+            elif estrato == "3":
+                pEstrato = 12
+            elif estrato == "4":
+                pEstrato = 8
+            elif estrato == "5" or estrato == "6":
+                pEstrato = 0
+
+            # Verificacion del salario
+            if salario >= 0:
+                if salario / smlv < 1:
+                    pSalario = 30
+                elif salario / smlv < 2:
+                    pSalario = 18
+                elif salario / smlv < 4:
+                    pSalario = 14
+                elif salario / smlv < 5:
+                    pSalario = 8
+                elif salario / smlv >= 5:
+                    pSalario = 0
+            # Sumatoria de los puntajes acumulados y validamos si continua o no
+            puntaje = pEtnia + pEstrato + pSalario
+            if puntaje >= 50:
+                continua += 1
+        lContinuan.append(continua)
+    print(lContinuan[0], lContinuan[1], lContinuan[2],
+          lContinuan[3], lContinuan[4], lContinuan[5], lContinuan[6])
+
+
+# LLamado de metodos y PROCEDIMIENTOS
+etnias = lista_matriz(participantes)
+estratos = lista_matriz(participantes)
+ingresos = lista_matriz(participantes)
+Xdia(etnias, "menos")
+Xsemana(etnias, "menos")
+Xdia(etnias, "mas")
+Xsemana(etnias, "mas")
+cont_noCon(etnias, estratos, ingresos)
