@@ -40,15 +40,15 @@ with open("./data.csv", 'r') as file:
 ingresos = sorted(ingresos)
 promedio = sum(ingresos)/len(ingresos)
 resultados = [
-    ("sin reconocimiento", sinreconocimiento),
-    ("raizal", raizal),
-    ("palenquero", palenquero),
-    ("indigena", indigena),
+    ("afrodescendiente", afrodescendiente),
     ("gitano", gitano),
-    ("afrodescendiente", afrodescendiente)
+    ("indigena", indigena),
+    ("palenquero", palenquero),
+    ("raizal", raizal),
+    ("sin reconocimiento", sinreconocimiento)
 ]
 print(continua)
 print('{} {} {:.2f}'.format(ingresos[0], ingresos[-1], promedio))
-for k, v in sorted(resultados, key=itemgetter(1, 0), reverse=True):
+for k, v in sorted(resultados, key=itemgetter(1), reverse=True):
     if v != 0:
         print(k, v)
