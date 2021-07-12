@@ -3,8 +3,9 @@ import java.util.Scanner;
 import java.util.Map.Entry;
 
 public class App {
+    static Scanner leer = new Scanner(System.in);
+
     public static void main(String[] args) throws Exception {
-        Scanner leer = new Scanner(System.in);
         String datoPaciente, enfermedad, cedula, nauseas, vomitos, dolorAbdominal, diarrea, fiebre;
         String[] datos, sintomas = { "nauseas", "vomitos", "dolor abdominal", "diarrea", "fiebre" };
         int[] cantidadSintomas;
