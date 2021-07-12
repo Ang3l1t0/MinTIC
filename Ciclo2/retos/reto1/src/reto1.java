@@ -2,7 +2,7 @@ import java.util.Hashtable;
 import java.util.Scanner;
 import java.util.Map.Entry;
 
-public class App {
+public class reto1 {
     static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
