@@ -1,6 +1,4 @@
-import java.util.Hashtable;
 import java.util.Scanner;
-import java.util.Map.Entry;
 
 public class reto1 {
     static Scanner leer = new Scanner(System.in);
@@ -11,13 +9,13 @@ public class reto1 {
         int[] cantidadSintomas;
         int i, cantidadPacientes, nauseasCount = 0, vomitosCount = 0, dolorAbdominalCount = 0, diarreaCount = 0,
                 fiebreCount = 0, diagnostico = 0;
-        Hashtable<String, String> cedulaEnfermedad = new Hashtable<String, String>();
-
         cantidadPacientes = Integer.parseInt(leer.nextLine()); // leo como string convierto a int para evitar problemas
+        String[] cedulas = new String[cantidadPacientes]; // defino una lista cedulas
+        String[] enfermedades = new String[cantidadPacientes]; // defino una lista enfermedades
+
         for (i = 0; i < cantidadPacientes; i++) {
 
             datoPaciente = leer.nextLine();
-
             datos = datoPaciente.split("-"); // separador
 
             // asignacion de valores segun el lugar de la cadena
@@ -68,12 +66,12 @@ public class reto1 {
             } else {
                 enfermedad = "Sin diagnostico";
             }
-            // creamos un diccionario con los datos de la cedula, enfermedad
-            cedulaEnfermedad.put(cedula, enfermedad);
+            cedulas[i] = cedula; // guardamos la cedula en una lista
+            enfermedades[i] = enfermedad; // guardamos la enfermed en una lista
         }
-        // recorremos el diccionario de la enfermedad e imprimimos los datos key, value
-        for (Entry<String, String> entry : cedulaEnfermedad.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
+        // recorremos la lista cedula e imprimos la cedula mas la enfermedad
+        for (i = 0; i < cedulas.length; i++) {
+            System.out.println(cedulas[i] + " " + enfermedades[i]);
         }
         // lista con la cantidad de pacientes con cada sintoma
         cantidadSintomas = new int[] { nauseasCount, vomitosCount, dolorAbdominalCount, diarreaCount, fiebreCount };
