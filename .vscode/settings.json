@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
         "Ciclo2/retos/reto1/src",
-        "Ciclo2/javaprojects/POO/src"
+        "Ciclo2/javaprojects/POO/src",
+        "Ciclo2/retos/reto2/src"
     ]
 }
