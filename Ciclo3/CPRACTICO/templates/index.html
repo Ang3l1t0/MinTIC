@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro</title>
+
+    <script src="{{ url_for('static', filename='js/validacion.js')}}"> </script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css">
+
+</head>
+
+<body>
+
+
+
+    <h1>Registro para vacunación COVID-19</h1>
+
+    <center>
+        <form action="" method="get" name="formRegistro" onsubmit="return validar_formulario();">
+            <div>
+                <label for="nombre"> Nombre usuario </label>
+                <input type="text" name="nombre" id="nombre">
+            </div>
+
+            <div>
+                <label for="usuario"> Usuario </label>
+                <input type="text" name="usuario" id="usuario">
+            </div>
+
+            <div>
+                <label for="sexo">Sexo</label>
+                <input type="radio" name="sexo" id="sexo" value="M">
+                Masculino
+                <input type="radio" name="sexo" id="sexo" value="F">
+                Femenino
+            </div>
+
+            <div>
+                <label for="email">Correo electrónico</label>
+                <input type="email" name="email" id="email">
+            </div>
+
+            <div>
+                <label for="password">Contraseña:</label>
+                <input type="password" name="password" id="password">
+                <img src="{{ url_for('static', filename='img/view.png')}}" alt="Ojito" onmouseover="mostrarPassword();"
+                    onmouseout="ocultarPassword();">
+            </div>
+
+            <div>
+                <input type="checkbox" name="confirmar" id="confirmar">
+                Declaro haber leído y aceptar las
+                condiciones generales del programa y la normativa sobre protección de datos
+            </div>
+
+            <div>
+                <input type="submit" value="Enviar" id="enviar">
+            </div>
+            <br>
+
+        </form>
+
+    </center>
+
+</body>
+
+</html>
