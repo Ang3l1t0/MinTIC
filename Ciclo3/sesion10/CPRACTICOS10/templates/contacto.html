@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+</head>
+
+<body>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <h1>Contacto</h1>
+
+    <form action="/contacto" method="post">
+        {{ form.nombre.label }}
+        {{ form.nombre }}
+        <br>
+        {{ form.email.label }}
+        {{ form.email }}
+        <br>
+        {{ form.mensaje.label }}
+        {{ form.mensaje(size=80) }}
+        <br>
+        {{ form.operador.label }}
+        {{ form.operador }}
+        <br>
+        {{ form.enviar }}
+    </form>
+</body>
+
+</html>
